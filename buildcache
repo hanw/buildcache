@@ -277,7 +277,7 @@ def check_md5sum():
                 sys.stderr.write("%s\n" % line.replace('FAILED', 'was changed'))
     if p.returncode != 0:
         if os.path.isfile(context_file_name + '.old'):
-            sys.stderr.write('%s\n' % check_output(['diff', '-u', context_file_name, (context_file_name + '.old')]))
+            sys.stderr.write('%s\n' % check_output(['diff', '-u', (context_file_name + '.old'), context_file_name]))
     return p.returncode
     
 
